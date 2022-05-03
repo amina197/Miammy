@@ -15,6 +15,12 @@ app.get('/api/areas', (req, res) => {
     .catch(err => console.log('Error server retrieving areas', err));
 });
 
+app.get('/api/recipes', (req, res) => {
+  axios.get(`http://www.themealdb.com/api/json/v1/1/filter.php?a=${req.query.area}`)
+    .then(({data}) => res.status(200).send(data.meals))
+    .catch(err => console.log('Error server retrieving meal by areas', err));
+});
+
 app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}`)
 })
