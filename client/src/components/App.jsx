@@ -1,11 +1,16 @@
-import React from 'react';
+import React, {useState} from 'react';
 import axios from 'axios';
 
 export default function App(props) {
 
-  // axios.get('/')
-  //   .then(data => console.log(data))
-  //   .ctach(err => console.log(err))
+  const [areas, setAreas] = useState([]);
 
-  return (<h1>Hello World</h1>)
+  // On app load get all areas
+  axios.get('/api/areas')
+    .then(({data}) => setAreas(data))
+    .catch(err => console.log('Error client retrieveing areas', err))
+
+  const allAreas = areas.map((area, i) => { return area.strArea !== 'Unknown' ? <li key={i}>{area.strArea}</li> : ''})
+
+  return (<ul>{allAreas}</ul>)
 }
