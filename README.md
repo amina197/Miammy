@@ -1,2 +1,2 @@
 # Nekhna
-Food recipe app to give inspiration
+Food recipe app to get inspiration
