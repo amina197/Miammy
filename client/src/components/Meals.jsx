@@ -12,9 +12,13 @@ export default function Meals({meals}) {
   const favoriteClicked = (e) => {
     axios.post('/favorite/add', {
       params: {
-        id: e.target.attributes['data-key'].value
+        id: e.target.attributes['data-key'].value,
+        title: e.target.attributes['data-title'].value,
+        thumbnail: e.target.attributes['data-thumb'].value
       }
     })
+      .then(({data}) => console.log(data))
+      .catch(err => console.log(err));
   }
 
   const allMeals = meals.map(meal =>
@@ -22,7 +26,7 @@ export default function Meals({meals}) {
       <h1 data-key={meal.idMeal}>{meal.strMeal}</h1>
       <img src={meal.strMealThumb + '/preview'} alt={meal.strMeal} data-key={meal.idMeal}/>
       <button data-key={meal.idMeal}>Select</button>
-      <button onClick={favoriteClicked} data-key={meal.idMeal}>Add to favorites</button>
+      <button onClick={favoriteClicked} data-key={meal.idMeal} data-title={meal.strMeal} data-thumb={meal.strMealThumb + '/preview'}>Add to favorites</button>
     </div>
   );
 

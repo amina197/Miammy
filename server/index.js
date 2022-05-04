@@ -3,7 +3,7 @@ const path = require('path');
 const express = require('express');
 const app = express();
 const axios = require('axios');
-const { addToFavorite } = require('./../db/index.js');
+const { addToFavorite, fetchAllFavorites } = require('./../db/index.js');
 
 app.use(express.json());
 app.use(express.static(path.resolve(__dirname, '../client/dist')));
@@ -43,10 +43,17 @@ app.get('/api/meals/recipe', (req, res) => {
     .catch(err => console.log('Error server retrieving meal recipe', err));
 });
 
+app.get('/favorites', (req, res) => {
+  fetchAllFavorites()
+    .then(data => res.status(200).send(data))
+    .catch(err => console.log('Error fetching favorites in DB', err));
+})
+
 app.post('/favorite/add', (req, res) => {
   console.log(req.body.params);
-  res.status(201).send('success');
-  //addToFavorite()
+  addToFavorite(req.body.params)
+    .then(dataSaved => res.status(201).send('recipe successfully saved in favorites'))
+    .catch(({err}) => console.log('Error insertion in DB', err));
 })
 
 app.listen(PORT, () => {
