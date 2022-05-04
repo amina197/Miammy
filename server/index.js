@@ -1,8 +1,9 @@
+require('dotenv').config();
 const path = require('path');
 const express = require('express');
 const app = express();
 const axios = require('axios');
-require('dotenv').config();
+const { addToFavorite } = require('./../db/index.js');
 
 app.use(express.json());
 app.use(express.static(path.resolve(__dirname, '../client/dist')));
@@ -41,6 +42,12 @@ app.get('/api/meals/recipe', (req, res) => {
     .then(({data}) => { res.status(200).send(data.meals[0])})
     .catch(err => console.log('Error server retrieving meal recipe', err));
 });
+
+app.post('/favorite/add', (req, res) => {
+  console.log(req.body.params);
+  res.status(201).send('success');
+  //addToFavorite()
+})
 
 app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}`)
