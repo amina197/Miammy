@@ -1,22 +1,26 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import {useLocation} from 'react-router-dom';
 
-export default function Recipe({mealId}) {
+export default function Recipe(props) {
   const [recipe, setRecipe] = useState({});
   const [ingredients, setIngredients] = useState([]);
   const [measures, setMeasures] = useState([]);
   const [youtube, setYoutube] = useState('');
+  const location = useLocation();
 
   useEffect(() => {
-    if (mealId || mealId === 0) {
-      axios.get(`/api/meals/recipe?id=${mealId}`)
-        .then((({data}) => {
-          setRecipe(data);
-          //setIngredients([]);
-        }))
-        .catch(err => console.log('Error client retrieveing meal recipe', err));
+    if (location.state) {
+      const {mealId} = location.state;
+      if (mealId || mealId === 0) {
+        axios.get(`/api/meals/recipe?id=${mealId}`)
+          .then((({data}) => {
+            setRecipe(data);
+          }))
+          .catch(err => console.log('Error client retrieveing meal recipe', err));
+      }
     }
-  }, [mealId]);
+  }, [location.state]);
 
   useEffect(() => {
     const findIngredients = () => {
@@ -48,7 +52,6 @@ export default function Recipe({mealId}) {
   const ingredientsMeasures = ingredients.map((ingredient, i) =>
     <li key={i}>{ingredient} - {measures[i]}</li>
   )
-
 
   return(<div>
     <img src={recipe.strMealThumb}/>

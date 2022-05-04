@@ -1,13 +1,15 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import Recipe from './Recipe.jsx';
+import {useNavigate} from 'react-router-dom';
 
 export default function Favorites() {
   const [faves, setFaves] = useState([]);
   const [activeMeal, setActiveMeal] = useState(null);
+  const navigate = useNavigate();
 
   const mealClicked = (e) => {
-    setActiveMeal(e.target.attributes['data-key'].value);
+    navigate('/recipe', {state: {mealId: e.target.attributes['data-key'].value}});
   };
 
   useEffect(() => {
