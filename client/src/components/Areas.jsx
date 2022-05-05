@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom';
+import {SAreasContainer} from './../styled/S-Areas.js';
 
 export default function Areas({displayMeals}) {
   const [areas, setAreas] = useState([]);
@@ -24,5 +25,8 @@ export default function Areas({displayMeals}) {
     : ''
   })
 
-  return(<ul>{allAreas}</ul>)
+  return(<SAreasContainer>
+    <ul>{allAreas}</ul>
+  </SAreasContainer>
+  )
 }

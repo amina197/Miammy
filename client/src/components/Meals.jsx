@@ -2,6 +2,11 @@ import React, {useState} from 'react';
 import Recipe from './Recipe.jsx';
 import axios from 'axios';
 import {useLocation, useNavigate} from 'react-router-dom';
+import {SMealsWrapper, SMealsContainer, SMealContainer, STitleContainer} from './../styled/S-Meals.js';
+import {SHeader} from './../styled/S-Header.js';
+import GlobalStyle from './../styled/globalStyles.js';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
 export default function Meals(meals) {
   const location = useLocation();
@@ -24,16 +29,23 @@ export default function Meals(meals) {
   }
 
   const allMeals = location.state.meals.map(meal =>
-    <div key={meal.idMeal} data-key={meal.idMeal}>
-      <h1 data-key={meal.idMeal} onClick={mealClicked}>{meal.strMeal}</h1>
-      <img src={meal.strMealThumb + '/preview'} alt={meal.strMeal} data-key={meal.idMeal} onClick={mealClicked}/>
-      <button data-key={meal.idMeal} onClick={mealClicked}>Select</button>
-      <button onClick={favoriteClicked} data-key={meal.idMeal} data-title={meal.strMeal} data-thumb={meal.strMealThumb + '/preview'}>Add to favorites</button>
-    </div>
+    <SMealContainer key={meal.idMeal} data-key={meal.idMeal} img={meal.strMealThumb + '/preview'}>
+      <STitleContainer data-key={meal.idMeal} onClick={mealClicked}>
+        <h1 data-key={meal.idMeal} onClick={mealClicked}>{meal.strMeal}</h1>
+      </STitleContainer>
+      <span onClick={favoriteClicked} data-key={meal.idMeal} data-title={meal.strMeal} data-thumb={meal.strMealThumb + '/preview'}><FontAwesomeIcon icon={faHeart} size="sm" className="heart" beat/></span>
+    </SMealContainer>
   );
 
-  return(
-  <div>
-    {allMeals}
-  </div>)
+  return(<>
+  <GlobalStyle/>
+  <SHeader>
+    <h1>Meals</h1>
+  </SHeader>
+  <SMealsContainer>
+    <SMealsWrapper>
+      {allMeals}
+    </SMealsWrapper>
+  </SMealsContainer>
+  </>)
 }

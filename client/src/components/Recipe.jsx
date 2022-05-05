@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import {useLocation} from 'react-router-dom';
+import GlobalStyle from './../styled/globalStyles.js';
+import {SImageContainer, SRecipeContainer, SVideoIngredientContainer, SIngredientInfoContainer} from './../styled/S-Recipe.js';
 
 export default function Recipe(props) {
   const [recipe, setRecipe] = useState({});
@@ -53,13 +55,20 @@ export default function Recipe(props) {
     <li key={i}>{ingredient} - {measures[i]}</li>
   )
 
-  return(<div>
-    <img src={recipe.strMealThumb}/>
-    <h1>{recipe.strMeal}</h1>
-    <span>{recipe.strCategory} </span>
-    <span>{recipe.strArea}</span>
-    <ul>{ingredientsMeasures}</ul>
-    { youtube ? <iframe src={`https://www.youtube.com/embed/${youtube}`}></iframe> : null}
-    <p>{recipe.strInstructions}</p>
-  </div>)
+  return(
+    <SRecipeContainer>
+      <GlobalStyle/>
+      <SImageContainer img={recipe.strMealThumb}>
+        { youtube ? <iframe src={`https://www.youtube.com/embed/${youtube}`} style={{width: '50%'}} allow="fullscreen"></iframe> : null}
+      </SImageContainer>
+      <SVideoIngredientContainer>
+        <SIngredientInfoContainer>
+          <h1>{recipe.strMeal}</h1>
+          <span>{recipe.strArea} | {recipe.strCategory} </span>
+          <ul>{ingredientsMeasures}</ul>
+          <p>{recipe.strInstructions}</p>
+        </SIngredientInfoContainer>
+      </SVideoIngredientContainer>
+    </SRecipeContainer>)
 }
+

@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import {Link, useNavigate} from 'react-router-dom';
+import {SCategoriesContainer} from './../styled/S-Categories.js';
 
-export default function Categories({displayMeals}) {
+export default function Categories() {
   const [categories, setCategories] = useState([]);
   const navigate = useNavigate();
 
@@ -22,11 +23,13 @@ export default function Categories({displayMeals}) {
   };
 
   const allCategories = categories.map((category, i) => { return category.strCategory !== 'Unknown' ?
-      // <Link to='/meals' state={{meals: meals}}>
         <li onClick={clickedCategory} key={i}>{category.strCategory}</li>
       : ''
     }
   )
 
-  return(<ul>{allCategories}</ul>)
+  return(<SCategoriesContainer>
+    <ul>{allCategories}</ul>
+  </SCategoriesContainer>
+  )
 }
