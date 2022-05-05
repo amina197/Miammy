@@ -22,5 +22,10 @@ const fetchAllFavorites = () => {
   return Favorites.find()
 }
 
+const removeFavorite = (faveId) => {
+  return Favorites.deleteOne({ idMeal: faveId })
+}
+
 module.exports.addToFavorite = addToFavorite;
 module.exports.fetchAllFavorites = fetchAllFavorites;
+module.exports.removeFavorite = removeFavorite;

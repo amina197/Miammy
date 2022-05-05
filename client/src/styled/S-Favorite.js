@@ -18,7 +18,6 @@ export const SMealContainer = styled.div`
   width: 200px;
   height: 180px;
 
-  // background-image: url(${({img}) => img}), linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5));
   background-color: #9BB542;
   background-size: cover;
   background-position: center;
@@ -26,6 +25,19 @@ export const SMealContainer = styled.div`
   margin-right: 10px;
   border-radius: 10px;
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.05);
+
+  button {
+    background-color: rgba(255, 255, 255, 0.15);
+    border: none;
+    margin-top: 10px;
+    width: 100%;
+    color: #fff;
+  }
+
+  button:hover {
+    background-color: #B53F2F;
+    cursor: pointer;
+  }
 `
 
 export const STitleContainer = styled.div`

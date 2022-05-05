@@ -13,6 +13,12 @@ export default function Favorites() {
     navigate('/recipe', {state: {mealId: e.target.attributes['data-key'].value}});
   };
 
+  const deleteClicked = (e) => {
+    axios.delete('/favorite/delete', { data: { id: e.target.attributes['data-key'].value}})
+      .then(({data}) => console.log(data))
+      .catch(err => console.log(err));
+  }
+
   useEffect(() => {
     axios.get('/favorites')
       .then(({data}) => setFaves(data))
@@ -20,10 +26,11 @@ export default function Favorites() {
   }, []);
 
   const allFavorites = faves.map(fave =>
-    <SMealContainer key={fave.idMeal} data-key={fave.idMeal} onClick={mealClicked} img={fave.strMealThumb}>
-      <STitleContainer>
+    <SMealContainer key={fave.idMeal} data-key={fave.idMeal}  img={fave.strMealThumb}>
+      <STitleContainer onClick={mealClicked}>
         <h1 data-key={fave.idMeal}>{fave.strMeal}</h1>
       </STitleContainer>
+    <button onClick={deleteClicked} data-key={fave.idMeal}>x</button>
     </SMealContainer>
   )
 
