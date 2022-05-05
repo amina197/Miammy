@@ -12,6 +12,7 @@ export const SMealsWrapper = styled.div`
 
 export const SMealsContainer = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 3rem;
@@ -70,4 +71,13 @@ export const STitleContainer = styled.div`
     font-size: 1rem;
     opacity: 1;
   }
+`
+
+export const SResearchMeal = styled.input`
+  width: 45%;
+  height: 2rem;
+  margin-bottom: 1rem;
+  padding-left: 0.6rem;
+  border-radius: 30px;
+  border: 1.2px solid #9BB542;
 `
