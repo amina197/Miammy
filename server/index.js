@@ -8,7 +8,7 @@ const { addToFavorite, fetchAllFavorites, removeFavorite } = require('./../db/in
 app.use(express.json());
 app.use(express.static(path.resolve(__dirname, '../client/dist')));
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 
 app.get('/api/areas', (req, res) => {
   axios.get('http://www.themealdb.com/api/json/v1/1/list.php?a=list')
