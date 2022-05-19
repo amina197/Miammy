@@ -1,5 +1,5 @@
 # Miammy
-![GitHub top language](https://img.shields.io/github/languages/top/amina197/Miammy) </br>
+![GitHub top language](https://img.shields.io/github/languages/top/amina197/Miammy)  
 Miammy is a food recipe app, targeting anyone who wants to cook and discover new meal recipes.
 
 
@@ -18,7 +18,7 @@ Miammy also relies on a 3rd party API called theMealDB https://www.themealdb.com
 Fork the repo
 
 Clone it locally:</br>
-```git clone https://github.com/your_username_/Miammy.git```
+**```git clone https://github.com/your_username_/Miammy.git```**
 
 Install the dependencies</br>
 **```npm install```**
@@ -32,8 +32,8 @@ Have fun 🤩
 
 
 ## 🔥 Coming next
-Firebase authentication
-Layout adjustments and conditional rendering
-Responsiveness
-Performance testing
+Firebase authentication  
+Layout adjustments and conditional rendering  
+Responsiveness  
+Performance testing  
 Unit testing
