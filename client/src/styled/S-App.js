@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 
-export const SAppContainer = styled.div`
+const SAppContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`
+`;
+
+export default SAppContainer;

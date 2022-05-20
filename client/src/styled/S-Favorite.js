@@ -7,7 +7,7 @@ export const SFavoriteContainer = styled.div`
   white-space: no-wrap;
 
   display: flex;
-`
+`;
 
 export const SMealContainer = styled.div`
   display: flex;
@@ -38,7 +38,7 @@ export const SMealContainer = styled.div`
     background-color: #B53F2F;
     cursor: pointer;
   }
-`
+`;
 
 export const STitleContainer = styled.div`
   width: 100%;
@@ -61,8 +61,8 @@ export const STitleContainer = styled.div`
     text-align: center;
     color: #fff;
   }
-`
+`;
 
 export const SMealsWrapper = styled.div`
   display: flex;
-`
+`;

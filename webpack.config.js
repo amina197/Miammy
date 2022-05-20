@@ -1,11 +1,12 @@
 const path = require('path');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
   mode: 'development',
   entry: '/client/src/index.jsx',
   output: {
     path: path.join(__dirname, 'client', 'dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   module: {
     rules: [
@@ -15,16 +16,15 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env', '@babel/preset-react']
-          }
-        }
+            presets: ['@babel/preset-env', '@babel/preset-react'],
+          },
+        },
       }, {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader']
-      }
-    ]
+        use: ['style-loader', 'css-loader'],
+      },
+    ],
   },
-
   devtool: 'eval-cheap-module-source-map',
   devServer: {
     static: {
@@ -32,5 +32,10 @@ module.exports = {
     },
     compress: true,
     port: 3000,
-  }
-}
+  },
+  resolve: {
+    enforceExtension: false,
+    extensions: ['.js', '.jsx'],
+  },
+  plugins: [new ESLintPlugin()],
+};

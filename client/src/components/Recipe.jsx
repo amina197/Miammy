@@ -1,10 +1,15 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import {useLocation} from 'react-router-dom';
-import GlobalStyle from './../styled/globalStyles.js';
-import {SImageContainer, SRecipeContainer, SVideoIngredientContainer, SIngredientInfoContainer} from './../styled/S-Recipe.js';
+import { useLocation } from 'react-router-dom';
+import GlobalStyle from '../styled/globalStyles';
+import {
+  SImageContainer,
+  SRecipeContainer,
+  SVideoIngredientContainer,
+  SIngredientInfoContainer,
+} from '../styled/S-Recipe';
 
-export default function Recipe(props) {
+export default function Recipe() {
   const [recipe, setRecipe] = useState({});
   const [ingredients, setIngredients] = useState([]);
   const [measures, setMeasures] = useState([]);
@@ -13,13 +18,13 @@ export default function Recipe(props) {
 
   useEffect(() => {
     if (location.state) {
-      const {mealId} = location.state;
+      const { mealId } = location.state;
       if (mealId || mealId === 0) {
         axios.get(`/api/meals/recipe?id=${mealId}`)
-          .then((({data}) => {
+          .then((({ data }) => {
             setRecipe(data);
           }))
-          .catch(err => console.log('Error client retrieveing meal recipe', err));
+          .catch((err) => console.error('Error client retrieveing meal recipe', err));
       }
     }
   }, [location.state]);
@@ -27,18 +32,18 @@ export default function Recipe(props) {
   useEffect(() => {
     const findIngredients = () => {
       const recipeInfos = Object.entries(recipe)
-        .filter(info => info[0].includes('strIngredient')
+        .filter((info) => info[0].includes('strIngredient')
           && info[1])
-        .map(ingredient => ingredient[1])
+        .map((ingredient) => ingredient[1]);
 
       setIngredients(recipeInfos);
     };
 
     const findMeasures = () => {
       const recipeInfos = Object.entries(recipe)
-        .filter(info => info[0].includes('strMeasure')
+        .filter((info) => info[0].includes('strMeasure')
           && info[1])
-        .map(ingredient => ingredient[1])
+        .map((ingredient) => ingredient[1]);
 
       setMeasures(recipeInfos);
     };
@@ -49,26 +54,34 @@ export default function Recipe(props) {
 
     findIngredients();
     findMeasures();
-  }, [recipe])
+  }, [recipe]);
 
-  const ingredientsMeasures = ingredients.map((ingredient, i) =>
-    <li key={i}>{ingredient} - {measures[i]}</li>
-  )
+  const ingredientsMeasures = ingredients.map((ingredient, i) => (
+    <li key={Math.random() * 1000}>
+      {ingredient}
+      -
+      {measures[i]}
+    </li>
+  ));
 
-  return(
+  return (
     <SRecipeContainer>
-      <GlobalStyle/>
+      <GlobalStyle />
       <SImageContainer img={recipe.strMealThumb}>
-        { youtube ? <iframe src={`https://www.youtube.com/embed/${youtube}`} style={{width: '50%'}} allow="fullscreen"></iframe> : null}
+        { youtube ? <iframe src={`https://www.youtube.com/embed/${youtube}`} style={{ width: '50%' }} allow="fullscreen" title="Youtube recipe video" /> : null}
       </SImageContainer>
       <SVideoIngredientContainer>
         <SIngredientInfoContainer>
           <h1>{recipe.strMeal}</h1>
-          <span>{recipe.strArea} | {recipe.strCategory} </span>
+          <span>
+            {recipe.strArea}
+            |
+            {recipe.strCategory}
+          </span>
           <ul>{ingredientsMeasures}</ul>
           <p>{recipe.strInstructions}</p>
         </SIngredientInfoContainer>
       </SVideoIngredientContainer>
-    </SRecipeContainer>)
+    </SRecipeContainer>
+  );
 }
-

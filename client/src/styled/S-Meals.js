@@ -8,7 +8,7 @@ export const SMealsWrapper = styled.div`
   overflow: scroll;
   white-space: no-wrap;
   flex-wrap: wrap;
-`
+`;
 
 export const SMealsContainer = styled.div`
   display: flex;
@@ -16,7 +16,7 @@ export const SMealsContainer = styled.div`
   justify-content: center;
   align-items: center;
   margin-top: 3rem;
-`
+`;
 
 export const SMealContainer = styled.div`
   display: flex;
@@ -27,7 +27,7 @@ export const SMealContainer = styled.div`
   width: 200px;
   height: 180px;
 
-  background-image: url(${({img}) => img}), linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5));
+  background-image: url(${({ img }) => img}), linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5));
   background-size: cover;
   background-position: center;
 
@@ -49,7 +49,7 @@ export const SMealContainer = styled.div`
     color: #9BB542;
     cursor: pointer;
   }
-`
+`;
 
 export const STitleContainer = styled.div`
   width: 100%;
@@ -71,7 +71,7 @@ export const STitleContainer = styled.div`
     font-size: 1rem;
     opacity: 1;
   }
-`
+`;
 
 export const SResearchMeal = styled.input`
   width: 45%;
@@ -80,4 +80,4 @@ export const SResearchMeal = styled.input`
   padding-left: 0.6rem;
   border-radius: 30px;
   border: 1.2px solid #9BB542;
-`
+`;

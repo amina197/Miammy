@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const SCategoriesContainer = styled.div`
+const SCategoriesContainer = styled.div`
   width: 70%;
   height: 260px;
   overflow-y: scroll;
@@ -11,7 +11,7 @@ export const SCategoriesContainer = styled.div`
 
   li {
     display: inline-block;
-    width: 100%;
+    width: 107%;
     padding: 10px;
     margin-bottom: 5px;
     border: 0.7px solid #9BB542;
@@ -26,4 +26,6 @@ export const SCategoriesContainer = styled.div`
     color: #fff;
     cursor: pointer;
   }
-`
+`;
+
+export default SCategoriesContainer;

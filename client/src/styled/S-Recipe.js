@@ -6,20 +6,21 @@ export const SRecipeContainer = styled.div`
   justify-content: center;
   align-items: center;
   margin-bottom: 3rem;
-`
+`;
 
 export const SImageContainer = styled.div`
-  height: 1000px;
+  min-height: 1000px;
   width: 40%;
   display: flex;
   justify-content: end;
 
-  background-image: url(${({img}) => img});
+  background-image: url(${({ img }) => img});
   background-position: center;
   background-size: cover;
 
   top: 0;
   position: sticky;
+  position: -webkit-sticky;
 
   iframe {
     height: 18%;
@@ -28,7 +29,7 @@ export const SImageContainer = styled.div`
     border: none;
     margin-top: 3rem;
   }
-`
+`;
 
 export const SVideoIngredientContainer = styled.div`
   display: flex;
@@ -37,7 +38,7 @@ export const SVideoIngredientContainer = styled.div`
   align-items: center;
   margin: 2rem 0;
   width: 60%;
-`
+`;
 
 export const SIngredientInfoContainer = styled.div`
   display: flex;
@@ -65,5 +66,4 @@ export const SIngredientInfoContainer = styled.div`
   p {
     margin: 0 15%;
   }
-
-`
+`;

@@ -20,6 +20,6 @@ const GlobalStyle = createGlobalStyle`
     font-size: 1.8rem;
     text-transform: uppercase;
   }
-`
+`;
 
 export default GlobalStyle;

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const SAreasContainer = styled.div`
+const SAreasContainer = styled.div`
   width: 70%;
   height: 260px;
   overflow-y: scroll;
@@ -25,4 +25,6 @@ export const SAreasContainer = styled.div`
     color: #fff;
     cursor: pointer;
   }
-`
+`;
+
+export default SAreasContainer;
