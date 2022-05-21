@@ -27,7 +27,7 @@ Run webpack
 **```npm run react:dev```**
 
 Run the server  
-**```npm run react:dev```**
+**```npm run server:dev```**
 
 Open the application on the browser at **[localhost:3000](http://localhost:3000/)**
 
