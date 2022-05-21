@@ -17,14 +17,17 @@ Miammy also relies on a 3rd party API called theMealDB https://www.themealdb.com
 ## Usage
 Fork the repo
 
-Clone it locally:</br>
+Clone it locally:   
 **```git clone https://github.com/your_username_/Miammy.git```**
 
-Install the dependencies</br>
+Install the dependencies  
 **```npm install```**
 
-Run the application</br>
-**```npm run start```**
+Run webpack   
+**```npm run react:dev```**
+
+Run the server  
+**```npm run react:dev```**
 
 Open the application on the browser at **[localhost:3000](http://localhost:3000/)**
 
@@ -33,7 +36,7 @@ Have fun 🤩
 
 ## 🔥 Coming next
 Firebase authentication  
-Layout adjustments and conditional rendering  
+Complete redesign  
 Responsiveness  
 Performance testing  
 Unit testing
