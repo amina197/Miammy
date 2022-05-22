@@ -1,6 +1,7 @@
 import React from 'react';
 import GlobalStyle from '../styled/globalStyles';
 import Header from './Header';
+import SignIn from './SignIn';
 import { SLandingWrapper, SLandingSlider } from '../styled/S-Landing';
 
 export default function App() {
@@ -9,6 +10,7 @@ export default function App() {
       <GlobalStyle />
       <SLandingWrapper>
         <Header />
+        <SignIn />
         <SLandingSlider>
           <h1>Miammy</h1>
           <h2>Get recipes ideas from around the world</h2>

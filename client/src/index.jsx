@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDom from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import {
   BrowserRouter,
   Routes,
@@ -9,7 +9,11 @@ import App from './components/App';
 import Meals from './components/Meals';
 import Recipe from './components/Recipe';
 
-ReactDom.render(
+const container = document.getElementById('app');
+
+const root = createRoot(container);
+
+root.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />} />
@@ -17,5 +21,4 @@ ReactDom.render(
       <Route path="/recipe" element={<Recipe />} />
     </Routes>
   </BrowserRouter>,
-  document.getElementById('root'),
 );
