@@ -20,7 +20,7 @@ export default function SignIn() {
 
   const connectCredentials = () => {
     userSignIn(email, password);
-  }
+  };
 
   return (
     <>

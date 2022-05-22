@@ -2,7 +2,6 @@ import { initializeApp } from 'firebase/app';
 // import { getAnalytics } from 'firebase/analytics';
 import {
   getAuth,
-  onAuthStateChanged,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
@@ -20,7 +19,7 @@ const firebaseConfig = {
 
 const firebaseApp = initializeApp(firebaseConfig);
 
-const auth = getAuth(firebaseApp);
+export const auth = getAuth(firebaseApp);
 
 // On Sign up, create new user in Firebase
 export const createNewUser = (email, pwd) => createUserWithEmailAndPassword(auth, email, pwd)
@@ -42,15 +41,6 @@ export const userSignIn = (email, pwd) => signInWithEmailAndPassword(auth, email
     console.error(code);
     console.error(message);
   });
-
-// Detect authentication state
-export const isLoggedIn = onAuthStateChanged(auth, (user) => {
-  if (user) {
-    console.log('logged in!');
-  } else {
-    console.log('No user!');
-  }
-});
 
 export const logout = () => signOut(auth);
 
