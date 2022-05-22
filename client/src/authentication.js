@@ -4,6 +4,7 @@ import {
   getAuth,
   onAuthStateChanged,
   createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
   signOut,
 } from 'firebase/auth';
 
@@ -25,6 +26,16 @@ const auth = getAuth(firebaseApp);
 export const createNewUser = (email, pwd) => createUserWithEmailAndPassword(auth, email, pwd)
   .then((userCredential) => {
     console.log('created', userCredential);
+  })
+  .catch((err) => {
+    const { code, message } = err;
+    console.error(code);
+    console.error(message);
+  });
+
+export const userSignIn = (email, pwd) => signInWithEmailAndPassword(auth, email, pwd)
+  .then((userCredential) => {
+    console.log('signed in', userCredential);
   })
   .catch((err) => {
     const { code, message } = err;

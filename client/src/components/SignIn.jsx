@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
-import { createNewUser } from '../authentication';
+import {
+  createNewUser,
+  userSignIn,
+} from '../authentication';
 
 export default function SignIn() {
   const [password, setPassword] = useState('');
@@ -15,11 +18,22 @@ export default function SignIn() {
     setPassword('');
   };
 
+  const connectCredentials = () => {
+    userSignIn(email, password);
+  }
+
   return (
-    <form>
-      <input type="text" placeholder="Email" name="Email" onChange={getCredentials} />
-      <input type="password" placeholder="Password" name="Password" onChange={getCredentials} />
-      <button type="button" onClick={saveCredentials}>Submit</button>
-    </form>
+    <>
+      <form>
+        <input type="text" placeholder="Email" name="Email" onChange={getCredentials} />
+        <input type="password" placeholder="Password" name="Password" onChange={getCredentials} />
+        <button type="button" onClick={saveCredentials}>Sign up</button>
+      </form>
+      <form>
+        <input type="text" placeholder="Email" name="Email" onChange={getCredentials} />
+        <input type="password" placeholder="Password" name="Password" onChange={getCredentials} />
+        <button type="button" onClick={connectCredentials}>Sign in</button>
+      </form>
+    </>
   );
 }
