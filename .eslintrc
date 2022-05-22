@@ -2,6 +2,11 @@
   "parser": "@babel/eslint-parser",
   "extends": ["airbnb"],
   "rules": {
-    "no-console": ["error", { "allow": ["warn", "error"] }]
+    "no-console": ["error", { "allow": ["warn", "error"] }],
+    "no-unused-expressions": ["error", { "allowTernary": true }]
+  },
+  "globals": {
+    "localStorage": "writable",
+    "document": "readonly"
   }
 }
