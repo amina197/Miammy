@@ -1,5 +1,6 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
+import { RecoilRoot } from 'recoil';
 import {
   BrowserRouter,
   Routes,
@@ -14,11 +15,13 @@ const container = document.getElementById('app');
 const root = createRoot(container);
 
 root.render(
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<App />} />
-      <Route path="/meals" element={<Meals />} />
-      <Route path="/recipe" element={<Recipe />} />
-    </Routes>
-  </BrowserRouter>,
+  <RecoilRoot>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="/meals" element={<Meals />} />
+        <Route path="/recipe" element={<Recipe />} />
+      </Routes>
+    </BrowserRouter>
+  </RecoilRoot>,
 );

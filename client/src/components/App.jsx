@@ -10,13 +10,13 @@ export default function App() {
       <GlobalStyle />
       <SLandingWrapper>
         <Header />
-        <SignIn />
         <SLandingSlider>
           <h1>Miammy</h1>
           <h2>Get recipes ideas from around the world</h2>
           <button type="button">Discover</button>
         </SLandingSlider>
       </SLandingWrapper>
+      <SignIn />
     </>
   );
 }
