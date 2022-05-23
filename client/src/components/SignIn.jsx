@@ -49,7 +49,7 @@ export default function SignIn() {
     createNewUser(email, password)
       .then(() => {
         resetInfo();
-        navigate('/meals');
+        navigate('/home');
       })
       .catch((err) => {
         const { code } = err;
@@ -71,7 +71,7 @@ export default function SignIn() {
     userSignIn(email, password)
       .then(() => {
         resetInfo();
-        navigate('/meals');
+        navigate('/home');
       })
       .catch((err) => {
         const { code } = err;
