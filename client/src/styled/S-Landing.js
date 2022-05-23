@@ -23,4 +23,21 @@ export const SLandingSlider = styled.div`
 
   width: 100%;
   height: 100%;
+
+  button {
+    font-family: var(--heading-font);
+    font-size: 1.3rem;
+    border: var(--btn-border);
+    border-radius: var(--btn-radius);
+    padding: 5px 23px;
+    margin-top: 2rem;
+
+    transition: var(--btn-transition);
+  }
+
+  button:hover {
+    cursor: pointer;
+    background-color: var(--accent-color);
+    color: #fff;
+  }
 `;

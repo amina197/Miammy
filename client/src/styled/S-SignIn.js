@@ -18,19 +18,17 @@ export const SignInContainer = styled.div`
   align-items: center;
   justify-content: center;
   position: absolute;
-  width: 27%;
-  height: 50vh;
+  width: 35%;
+  height: 60vh;
 
   background-color: #fff;
   border-radius: 10px;
 
   h6 {
-    font-family: coldsmith-pro, sans-serif;
-    font-weight: 400;
-    font-style: normal;
+    font-family: var(--heading-font);
     font-size: 1.8rem;
     margin-bottom: 1.5rem;
-    color: #506700;
+    color: var(--accent-color);
   }
 `;
 
@@ -51,21 +49,56 @@ export const SignInForm = styled.form`
     font-size: .7rem;
   }
 
-  button {
-    width: 70%;
-  }
-
   label {
     font-size: 1rem;
-    font-family: "Trattatello", serif;
+    font-family: var(--subheading-font);
     display: block;
-    width: 150%;
+    width: 110%;
     line-height: 1.2;
   }
 
   small {
-    font-size: .8rem;
-    font-family: "Trattatello", serif;
+    font-size: .7rem;
+    font-family: var(--body-font);
     margin-top: 1.5rem;
+  }
+
+  p {
+    font-family: var(--heading-font);
+    font-size: 1rem;
+    color: #c23616;
+    margin-bottom: .5rem;
+    letter-spacing: .5px;
+  }
+`;
+
+export const AccountContainer = styled.div`
+  button {
+    font-size: 1rem;
+    border: 0;
+    font-family: var(--heading-font);
+    background-color: transparent;
+    margin-left: 4px;
+    transition: var(--btn-transition);
+  }
+
+  button:hover {
+    cursor: pointer;
+    color: var(--accent-color);
+  }
+`;
+
+export const CTA = styled.button`
+  background-color: transparent;
+  border: var(--btn-border);
+  border-radius: var(--btn-radius);
+  font-family: var(--heading-font);
+  padding: var(--btn-padding);
+  margin: 1.5rem 0;
+
+  &:hover {
+    cursor: pointer;
+    color: #fff;
+    background-color: var(--accent-color);
   }
 `;
