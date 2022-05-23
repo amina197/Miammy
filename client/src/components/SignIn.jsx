@@ -6,8 +6,14 @@ import {
   createNewUser,
   userSignIn,
 } from '../authentication';
-import { SignInWrapper, SignInContainer, SignInForm, AccountContainer, CTA } from '../styled/S-SignIn';
-import showSignIn from '../atoms';
+import {
+  SignInWrapper,
+  SignInContainer,
+  SignInForm,
+  AccountContainer,
+  CTA,
+} from '../styled/S-SignIn';
+import { showSignIn } from '../atoms';
 
 export default function SignIn() {
   const [password, setPassword] = useState('');
@@ -47,8 +53,9 @@ export default function SignIn() {
       })
       .catch((err) => {
         const { code } = err;
-        console.log(code);
-        if (code === AuthErrorCodes.EMAIL_ALREADY_EXISTS) {
+
+        if (code === AuthErrorCodes.EMAIL_ALREADY_EXISTS
+          || code === AuthErrorCodes.EMAIL_ALREADY_IN_USE) {
           setErrorMessage('Sorry, a user already exists with the provided email.');
         } else {
           setErrorMessage('Error.');
@@ -98,7 +105,7 @@ export default function SignIn() {
                   <>
                     <CTA type="button" onClick={connectCredentials}>Connect</CTA>
                     <AccountContainer>
-                      <small>Don't have an account yet?</small>
+                      <small>Don&#39;t have an account yet?</small>
                       <button type="button" onClick={() => setModalView('signup')}>Sign Up</button>
                     </AccountContainer>
                   </>
