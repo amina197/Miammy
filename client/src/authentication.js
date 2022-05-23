@@ -22,25 +22,9 @@ const firebaseApp = initializeApp(firebaseConfig);
 export const auth = getAuth(firebaseApp);
 
 // On Sign up, create new user in Firebase
-export const createNewUser = (email, pwd) => createUserWithEmailAndPassword(auth, email, pwd)
-  .then((userCredential) => {
-    console.log('created', userCredential);
-  })
-  .catch((err) => {
-    const { code, message } = err;
-    console.error(code);
-    console.error(message);
-  });
+export const createNewUser = (email, pwd) => createUserWithEmailAndPassword(auth, email, pwd);
 
-export const userSignIn = (email, pwd) => signInWithEmailAndPassword(auth, email, pwd)
-  .then((userCredential) => {
-    console.log('signed in', userCredential);
-  })
-  .catch((err) => {
-    const { code, message } = err;
-    console.error(code);
-    console.error(message);
-  });
+export const userSignIn = (email, pwd) => signInWithEmailAndPassword(auth, email, pwd);
 
 export const logout = () => signOut(auth);
 

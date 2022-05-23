@@ -9,29 +9,29 @@ const GlobalStyle = createGlobalStyle`
     color: #333333;
   }
 
-  button {
-    font-family: coldsmith-pro,sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    padding: 3px 17px;
-    background: transparent;
-    border: 1px solid #506700;
-    border-radius: 20px;
-    outline: none;
-    text-transform: uppercase;
+  html {
+    --accent-color: #506700;
+    --main-color: #333333;
+    --heading-font: coldsmith-pro,sans-serif;
+    --subheading-font: "Trattatello", serif;
+    --body-font: 'Hind Siliguri', sans-serif;
+    --btn-radius: 20px;
+    --btn-padding: 3px 17px;
+    --btn-border: 1px solid var(--accent-color);
+    --btn-bg: transparent;
+    --btn-transition: .3s ease-in-out;
   }
 
   h1 {
     margin-top: 12%;
-    font-family: coldsmith-pro,sans-serif;
+    font-family: var(--heading-font);
     font-weight: 400;
-    font-style: normal;
     font-size: 11rem;
     line-height: 8rem;
   }
 
   h2 {
-    font-family: "Trattatello", serif;
+    font-family: var(--subheading-font);
     font-size: 2rem;
     text-align: center;
   }
