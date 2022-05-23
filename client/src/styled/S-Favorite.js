@@ -1,68 +1,38 @@
 import styled from 'styled-components';
 
-export const SFavoriteContainer = styled.div`
-  width: 70%;
-  height: 200px;
+export const SFavoritesWrapper = styled.div`
+  width: 100%;
   overflow-y: scroll;
   white-space: no-wrap;
 
   display: flex;
 `;
 
-export const SMealContainer = styled.div`
+export const SFavoritesContainer = styled.div`
+  display: flex;
+`;
+
+export const SMealWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  width: 200px;
-  height: 180px;
+  width: 150px;
+  height: 170px;
 
-  background-color: #9BB542;
-  background-size: cover;
-  background-position: center;
+  border: 2px solid var(--accent-color);
 
   margin-right: 10px;
   border-radius: 10px;
-  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.05);
-
-  button {
-    background-color: rgba(255, 255, 255, 0.15);
-    border: none;
-    margin-top: 10px;
-    width: 100%;
-    color: #fff;
-  }
-
-  button:hover {
-    background-color: #B53F2F;
-    cursor: pointer;
-  }
-`;
-
-export const STitleContainer = styled.div`
-  width: 100%;
-  height: 40%;
-  padding: 5%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-top: dashed 0.1rem #fff;
-  border-bottom: dashed 0.1rem #fff;
-  background-color: rgba(255, 255, 255, 0.15);
-
-  &:hover {
-    background-color: rgba(255, 255, 255, 0.3);
-    cursor: pointer;
-  }
+  box-shadow: 0 0 0 .5 rgba(0, 0, 0, 0.05);
+  padding: 0 1rem;
 
   h1 {
     text-transform: uppercase;
     text-align: center;
-    color: #fff;
+    color: var(--accent-color);
+    font-family: var(--heading-font);
+    font-size: 1rem;
   }
-`;
-
-export const SMealsWrapper = styled.div`
-  display: flex;
 `;

@@ -2,10 +2,9 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import {
-  SFavoriteContainer,
-  SMealContainer,
-  STitleContainer,
-  SMealsWrapper,
+  SFavoritesWrapper,
+  SMealWrapper,
+  SFavoritesContainer,
 } from '../styled/S-Favorite';
 
 export default function Favorites() {
@@ -29,19 +28,16 @@ export default function Favorites() {
   }, []);
 
   const allFavorites = faves.map((fave) => (
-    <SMealContainer key={fave.idMeal} data-key={fave.idMeal} img={fave.strMealThumb}>
-      <STitleContainer onClick={mealClicked}>
-        <h1 data-key={fave.idMeal}>{fave.strMeal}</h1>
-      </STitleContainer>
-      <button type="button" onClick={deleteClicked} data-key={fave.idMeal}>x</button>
-    </SMealContainer>
+    <SMealWrapper key={fave.idMeal} data-key={fave.idMeal} img={fave.strMealThumb}>
+      <h1 data-key={fave.idMeal}>{fave.strMeal}</h1>
+    </SMealWrapper>
   ));
 
   return (
-    <SFavoriteContainer>
-      <SMealsWrapper>
+    <SFavoritesWrapper>
+      <SFavoritesContainer>
         {allFavorites}
-      </SMealsWrapper>
-    </SFavoriteContainer>
+      </SFavoritesContainer>
+    </SFavoritesWrapper>
   );
 }

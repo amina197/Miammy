@@ -12,7 +12,7 @@ export default function Landing() {
 
   const handleDiscoverClick = () => {
     if (isLogged) {
-      navigate('/meals');
+      navigate('/home');
     } else {
       setShowModal(true);
     }

@@ -21,20 +21,6 @@ const GlobalStyle = createGlobalStyle`
     --btn-bg: transparent;
     --btn-transition: .3s ease-in-out;
   }
-
-  h1 {
-    margin-top: 12%;
-    font-family: var(--heading-font);
-    font-weight: 400;
-    font-size: 11rem;
-    line-height: 8rem;
-  }
-
-  h2 {
-    font-family: var(--subheading-font);
-    font-size: 2rem;
-    text-align: center;
-  }
 `;
 
 export default GlobalStyle;

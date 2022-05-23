@@ -7,6 +7,20 @@ export const SLandingWrapper = styled.div`
 
   width: 100%;
   height: 100vh;
+
+  h1 {
+    margin-top: 12%;
+    font-family: var(--heading-font);
+    font-weight: 400;
+    font-size: 11rem;
+    line-height: 8rem;
+  }
+
+  h2 {
+    font-family: var(--subheading-font);
+    font-size: 2rem;
+    text-align: center;
+  }
 `;
 
 export const SLandingSlider = styled.div`
