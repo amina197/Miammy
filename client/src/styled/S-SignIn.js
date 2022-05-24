@@ -43,7 +43,7 @@ export const SignInForm = styled.form`
     padding: 5px 50% 5px 10%;
     margin-bottom: 1rem;
     border-radius: 20px;
-    background-color: rgba(51, 51, 51, .13);
+    background-color: var(--discreet-color);
     border-color: transparent;
 
     font-size: .7rem;

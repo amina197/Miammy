@@ -12,6 +12,7 @@ const GlobalStyle = createGlobalStyle`
   html {
     --accent-color: #506700;
     --main-color: #333333;
+    --discreet-color: rgba(51, 51, 51, .13);
     --heading-font: coldsmith-pro,sans-serif;
     --subheading-font: "Trattatello", serif;
     --body-font: 'Hind Siliguri', sans-serif;

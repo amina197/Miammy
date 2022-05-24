@@ -21,7 +21,7 @@ export const SMealWrapper = styled.div`
   width: 150px;
   height: 170px;
 
-  border: 2px solid var(--accent-color);
+  border: var(--btn-border);
 
   margin-right: 10px;
   border-radius: 10px;
@@ -33,6 +33,6 @@ export const SMealWrapper = styled.div`
     text-align: center;
     color: var(--accent-color);
     font-family: var(--heading-font);
-    font-size: 1rem;
+    font-weight: 400;
   }
 `;

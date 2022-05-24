@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import SCategoriesContainer from '../styled/S-Categories';
+import { SFiltersWrapper } from '../styled/S-Home';
 
 export default function Categories() {
   const [categories, setCategories] = useState([]);
+  const [categorySelection, setCategorySelection] = useState('Beef');
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -14,8 +15,8 @@ export default function Categories() {
       .catch((err) => console.error('Error client retrieveing categories', err));
   }, []);
 
-  const clickedCategory = (e) => {
-    axios.get(`api/meals?category=${e.target.innerText}`)
+  const categorySelected = () => {
+    axios.get(`api/meals?category=${categorySelection}`)
       .then(({ data }) => {
         navigate('/meals', { state: { meals: data } });
       })
@@ -23,16 +24,19 @@ export default function Categories() {
   };
 
   const allCategories = categories.map((category) => (category.strCategory !== 'Unknown' ? (
-    <li onClick={clickedCategory} key={Math.random() * 1000}>
+    <option key={Math.random() * 1000} value={category.strCategory}>
       {category.strCategory}
-    </li>
+    </option>
   )
     : null
   ));
 
   return (
-    <SCategoriesContainer>
-      <ul>{allCategories}</ul>
-    </SCategoriesContainer>
+    <SFiltersWrapper>
+      <select name="category" value={categorySelection} onChange={(e) => setCategorySelection(e.target.value)}>
+        {allCategories}
+      </select>
+      <button type="button" onClick={categorySelected}>Select</button>
+    </SFiltersWrapper>
   );
 }
