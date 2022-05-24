@@ -18,7 +18,7 @@ export default function Categories() {
   const categorySelected = () => {
     axios.get(`api/meals?category=${categorySelection}`)
       .then(({ data }) => {
-        navigate('/meals', { state: { meals: data } });
+        navigate('/meals', { state: { meals: data, filter: categorySelection } });
       })
       .catch((err) => console.error('Error client retrieveing meals by categories', err));
   };

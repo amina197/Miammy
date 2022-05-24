@@ -35,10 +35,10 @@ export default function Favorites() {
   }, []);
 
   const allFavorites = faves.map((fave) => (
-    <SMealWrapper key={fave.idMeal} data-key={fave.idMeal} img={fave.strMealThumb}>
+    <SMealWrapper key={fave.idMeal}>
       <FullCard>
-        <FrontCard>
-          <h1 data-key={fave.idMeal}>{fave.strMeal}</h1>
+        <FrontCard img={`${fave.strMealThumb}`}>
+          <h1>{fave.strMeal}</h1>
         </FrontCard>
         <BackCard>
           <button data-key={fave.idMeal} type="button" onClick={checkRecipe}>Check Recipe</button>

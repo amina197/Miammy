@@ -1,23 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { useLocation, useNavigate } from 'react-router-dom';
 import {
   SMealsWrapper,
   SMealsContainer,
   SMealContainer,
-  STitleContainer,
-  SResearchMeal,
+  FullCard,
+  FrontCard,
+  BackCard,
 } from '../styled/S-Meals';
-import SHeader from '../styled/S-Header';
-import GlobalStyle from '../styled/globalStyles';
+import Header from './Header';
+import SCarousel from '../styled/S-Carousel';
 
 export default function Meals() {
   const location = useLocation();
   const navigate = useNavigate();
   const [research, setResearch] = useState('');
   const [filteredMeals, setFilteredMeals] = useState([]);
+  const [filter, setFilter] = useState('');
 
   useEffect(() => {
     if (research && location.state) {
@@ -28,6 +28,7 @@ export default function Meals() {
     } else {
       setFilteredMeals(location.state.meals);
     }
+    setFilter(location.state.filter);
   }, [research]);
 
   const mealClicked = (e) => {
@@ -51,28 +52,30 @@ export default function Meals() {
   };
 
   const allMeals = filteredMeals.map((meal) => (
-    <SMealContainer key={meal.idMeal} data-key={meal.idMeal} img={meal.strMealThumb + '/preview'}>
-      <STitleContainer data-key={meal.idMeal} onClick={mealClicked}>
-        <h1 data-key={meal.idMeal} onClick={mealClicked}>{meal.strMeal}</h1>
-      </STitleContainer>
-      <span onClick={favoriteClicked} data-key={meal.idMeal} data-title={meal.strMeal} data-thumb={meal.strMealThumb + '/preview'}>
-        <FontAwesomeIcon icon={faHeart} size="sm" className="heart" beat/>
-      </span>
+    <SMealContainer key={meal.idMeal} data-key={meal.idMeal}>
+      <FullCard>
+        <FrontCard img={`${meal.strMealThumb}/preview`} />
+        <BackCard>
+          <h1>{meal.strMeal}</h1>
+          <button type="button" onClick={mealClicked} data-key={meal.idMeal}>Check recipe</button>
+        </BackCard>
+      </FullCard>
     </SMealContainer>
   ));
 
   return (
     <>
-      <GlobalStyle />
-      <SHeader>
+      <Header />
+      <SCarousel>
         <h1>Meals</h1>
-      </SHeader>
-      <SMealsContainer>
-        <SResearchMeal type="text" placeholder="Research a specific meal" onChange={mealResearched} />
-        <SMealsWrapper>
+        <h2>{`-- ${filter} --`}</h2>
+        <input type="text" id="research" placeholder="Filter your meals by name" onChange={mealResearched} />
+      </SCarousel>
+      <SMealsWrapper>
+        <SMealsContainer>
           {allMeals}
-        </SMealsWrapper>
-      </SMealsContainer>
+        </SMealsContainer>
+      </SMealsWrapper>
     </>
   );
 }

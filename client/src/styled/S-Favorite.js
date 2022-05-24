@@ -60,6 +60,7 @@ export const FrontCard = styled.div`
   border-radius: 10px;
   box-shadow: 0 0 0 .5 rgba(0, 0, 0, 0.05);
   border: var(--btn-border);
+  background-color: var(--main-color);
 
   overflow: hidden;
   backface-visibility: hidden;
@@ -68,7 +69,7 @@ export const FrontCard = styled.div`
   transform: perspective(600px) rotateY(0deg);
 
   h1 {
-    color: var(--accent-color);
+    color: #fff;
   }
 `;
 
@@ -132,6 +133,4 @@ export const BackCard = styled.div`
     border-bottom: 2px solid var(--negative-color);
     color: var(--negative-color);
   }
-
-
 `;

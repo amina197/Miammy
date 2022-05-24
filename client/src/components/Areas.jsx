@@ -17,7 +17,7 @@ export default function Areas() {
 
   const areaSelected = () => {
     axios.get(`api/meals?area=${areaSelection}`)
-      .then(({ data }) => navigate('/meals', { state: { meals: data } }))
+      .then(({ data }) => navigate('/meals', { state: { meals: data, filter: areaSelection } }))
       .catch((err) => console.error('Error client retrieveing meals by areas', err));
   };
 
