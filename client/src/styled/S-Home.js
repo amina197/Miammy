@@ -49,7 +49,6 @@ export const HomeFavoritesWrapper = styled.div`
 
   p {
     font-family: var(--subheading-font);
-    padding: .3rem 0;
   }
 `;
 
