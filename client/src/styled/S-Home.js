@@ -44,11 +44,64 @@ export const HomeFavoritesWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 30%;
-  margin-right: 10rem;
+  width: 34%;
+  margin-right: 6rem;
 
   p {
     font-family: var(--subheading-font);
     padding: .3rem 0;
+  }
+`;
+
+export const HomeFiltersWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+
+  p {
+    font-family: var(--subheading-font);
+    text-align: center;
+    padding: 0.3rem 0;
+  }
+`;
+
+export const SFiltersWrapper = styled.div`
+  display: flex;
+  margin-bottom: 1rem;
+
+  select {
+    font-family: var(--heading-font);
+    background-color: transparent;
+    border: var(--btn-border);
+    border-radius: var(--btn-radius);
+    padding: var(--btn-padding);
+    text-align: center;
+    width: 100%;
+    color: var(--accent-color);
+
+    transition: var(--btn-transition);
+  }
+
+  select:hover {
+    cursor: pointer;
+    color: #fff;
+    background-color: var(--accent-color);
+  }
+
+  button {
+    background-color: var(--discreet-color);
+    border: 0;
+    padding: var(--btn-padding);
+    border-radius: var(--btn-radius);
+    margin-left: 3px;
+    font-family: var(--heading-font);
+
+    transition: var(--btn-transition);
+  }
+
+  button:hover {
+    cursor: pointer;
+    background-color: var(--main-color);
+    color: #fff;
   }
 `;

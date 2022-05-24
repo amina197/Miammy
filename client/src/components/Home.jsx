@@ -1,7 +1,14 @@
 import React from 'react';
 import Header from './Header';
 import Favorites from './Favorites';
-import { SCarousel, SHomeBodyWrapper, HomeFavoritesWrapper } from '../styled/S-Home';
+import Areas from './Areas';
+import Categories from './Categories';
+import {
+  SCarousel,
+  SHomeBodyWrapper,
+  HomeFavoritesWrapper,
+  HomeFiltersWrapper,
+} from '../styled/S-Home';
 
 function Home() {
   return (
@@ -16,13 +23,13 @@ function Home() {
           <p>your favorite recipes</p>
           <Favorites />
         </HomeFavoritesWrapper>
-        <div>
-          <p>filter recipes by</p>
+        <HomeFiltersWrapper>
+          <p>select a recipe by area or type</p>
           <form>
-            <select name="country">
-            </select>
+            <Areas />
+            <Categories />
           </form>
-        </div>
+        </HomeFiltersWrapper>
       </SHomeBodyWrapper>
     </>
   );
