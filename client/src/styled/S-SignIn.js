@@ -66,7 +66,7 @@ export const SignInForm = styled.form`
   p {
     font-family: var(--heading-font);
     font-size: 1rem;
-    color: #c23616;
+    color: var(--negative-color);
     margin-bottom: .5rem;
     letter-spacing: .5px;
   }

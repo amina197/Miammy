@@ -5,31 +5,46 @@ import {
   SFavoritesWrapper,
   SMealWrapper,
   SFavoritesContainer,
+  FullCard,
+  FrontCard,
+  BackCard,
 } from '../styled/S-Favorite';
 
 export default function Favorites() {
   const [faves, setFaves] = useState([]);
   const navigate = useNavigate();
 
-  const mealClicked = (e) => {
+  const fetchFavorites = () => {
+    axios.get('/favorites')
+      .then(({ data }) => setFaves(data))
+      .catch((err) => console.error(err));
+  };
+
+  const checkRecipe = (e) => {
     navigate('/recipe', { state: { mealId: e.target.attributes['data-key'].value } });
   };
 
-  const deleteClicked = (e) => {
+  const deleteFave = (e) => {
     axios.delete('/favorite/delete', { data: { id: e.target.attributes['data-key'].value } })
-      .then(({ data }) => console.log(data))
+      .then(() => fetchFavorites())
       .catch((err) => console.error(err));
   };
 
   useEffect(() => {
-    axios.get('/favorites')
-      .then(({ data }) => setFaves(data))
-      .catch((err) => console.error(err));
+    fetchFavorites();
   }, []);
 
   const allFavorites = faves.map((fave) => (
     <SMealWrapper key={fave.idMeal} data-key={fave.idMeal} img={fave.strMealThumb}>
-      <h1 data-key={fave.idMeal}>{fave.strMeal}</h1>
+      <FullCard>
+        <FrontCard>
+          <h1 data-key={fave.idMeal}>{fave.strMeal}</h1>
+        </FrontCard>
+        <BackCard>
+          <button data-key={fave.idMeal} type="button" onClick={checkRecipe}>Check Recipe</button>
+          <button data-key={fave.idMeal} type="button" onClick={deleteFave}>Remove</button>
+        </BackCard>
+      </FullCard>
     </SMealWrapper>
   ));
 
