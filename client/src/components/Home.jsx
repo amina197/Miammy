@@ -3,8 +3,8 @@ import Header from './Header';
 import Favorites from './Favorites';
 import Areas from './Areas';
 import Categories from './Categories';
+import SCarousel from '../styled/S-Carousel';
 import {
-  SCarousel,
   SHomeBodyWrapper,
   HomeFavoritesWrapper,
   HomeFiltersWrapper,

@@ -1,35 +1,5 @@
 import styled from 'styled-components';
 
-export const SCarousel = styled.div`
-  height: 45vh;
-  width: 100%;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  background-image: url('https://images.unsplash.com/photo-1543353071-10c8ba85a904?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
-  background-size: cover;
-  background-position: center;
-  overflow: hidden;
-
-  h1 {
-    margin-top: 7%;
-    font-family: var(--heading-font);
-    font-size: 5rem;
-    font-weight: 400;
-    line-height: 2rem;
-  }
-
-  h2 {
-    font-family: var(--subheading-font);
-    font-size: 2.5rem;
-    text-align: center;
-    font-weight: 400;
-  }
-`;
-
 export const SHomeBodyWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -44,8 +14,8 @@ export const HomeFavoritesWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 34%;
-  margin-right: 6rem;
+  max-width: 34%;
+  margin-right: 3rem;
 
   p {
     font-family: var(--subheading-font);
@@ -76,19 +46,21 @@ export const SFiltersWrapper = styled.div`
     padding: var(--btn-padding);
     text-align: center;
     width: 100%;
-    color: var(--accent-color);
 
     transition: var(--btn-transition);
   }
 
-  select:hover {
+  select:hover,
+  select:active,
+  select:focus {
     cursor: pointer;
-    color: #fff;
-    background-color: var(--accent-color);
+    // color: #fff;
+    background-color: var(--discreet-color);
   }
 
   button {
-    background-color: var(--discreet-color);
+    background-color: var(--accent-color);
+    color: #fff;
     border: 0;
     padding: var(--btn-padding);
     border-radius: var(--btn-radius);
