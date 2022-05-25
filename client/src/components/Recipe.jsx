@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
-import GlobalStyle from '../styled/globalStyles';
+import Header from './Header';
+import SCarousel from '../styled/S-Carousel';
 import {
   SImageContainer,
   SRecipeContainer,
@@ -65,23 +66,28 @@ export default function Recipe() {
   ));
 
   return (
-    <SRecipeContainer>
-      <GlobalStyle />
-      <SImageContainer img={recipe.strMealThumb}>
-        { youtube ? <iframe src={`https://www.youtube.com/embed/${youtube}`} style={{ width: '50%' }} allow="fullscreen" title="Youtube recipe video" /> : null}
-      </SImageContainer>
-      <SVideoIngredientContainer>
-        <SIngredientInfoContainer>
-          <h1>{recipe.strMeal}</h1>
-          <span>
-            {recipe.strArea}
-            |
-            {recipe.strCategory}
-          </span>
-          <ul>{ingredientsMeasures}</ul>
-          <p>{recipe.strInstructions}</p>
-        </SIngredientInfoContainer>
-      </SVideoIngredientContainer>
-    </SRecipeContainer>
+    <>
+      <Header />
+      <SCarousel>
+        <h1>Let's cook</h1>
+        <h2>{recipe.strMeal}</h2>
+      </SCarousel>
+      <SRecipeContainer>
+        <SImageContainer img={recipe.strMealThumb}>
+          { youtube ? <iframe src={`https://www.youtube.com/embed/${youtube}`} style={{ width: '50%' }} allow="fullscreen" title="Youtube recipe video" /> : null}
+        </SImageContainer>
+        <SVideoIngredientContainer>
+          <SIngredientInfoContainer>
+            <span>
+              {recipe.strArea}
+              |
+              {recipe.strCategory}
+            </span>
+            <ul>{ingredientsMeasures}</ul>
+            <p>{recipe.strInstructions}</p>
+          </SIngredientInfoContainer>
+        </SVideoIngredientContainer>
+      </SRecipeContainer>
+    </>
   );
 }

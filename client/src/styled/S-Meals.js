@@ -121,6 +121,7 @@ export const BackCard = styled.div`
   }
 
   button:hover {
+    cursor: pointer;
     font-size: 1.3rem;
     border-bottom: 2px solid #fff;
   }
