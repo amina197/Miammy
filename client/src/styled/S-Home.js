@@ -54,8 +54,12 @@ export const SFiltersWrapper = styled.div`
   select:active,
   select:focus {
     cursor: pointer;
-    // color: #fff;
     background-color: var(--discreet-color);
+  }
+
+  option {
+    font-family: var(--heading-font);
+    // font-size: .8rem;
   }
 
   button {
