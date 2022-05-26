@@ -7,12 +7,14 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     font-size: 1.1rem;
     color: #333333;
+    font-weight: 400;
   }
 
   html {
     --accent-color: #506700;
     --main-color: #333333;
     --discreet-color: rgba(51, 51, 51, .13);
+    --very-discreet-color: rgba(51, 51, 51, .06);
     --negative-color:  #EC591C;
     --heading-font: coldsmith-pro,sans-serif;
     --subheading-font: "Trattatello", serif;

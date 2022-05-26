@@ -18,7 +18,6 @@ const SCarousel = styled.div`
     margin-top: 7%;
     font-family: var(--heading-font);
     font-size: 5rem;
-    font-weight: 400;
     line-height: 2rem;
   }
 
@@ -26,18 +25,27 @@ const SCarousel = styled.div`
     font-family: var(--subheading-font);
     font-size: 2.5rem;
     text-align: center;
-    font-weight: 400;
   }
 
-  input {
-    width: 20%;
+  input, button {
+    width: 15%;
     margin-bottom: 1rem;
-    padding: 1px 6px;
-    border: 2px solid var(--main-color);
+    padding: 2px 4px;
+    border: 1.5px solid var(--main-color);
     border-radius: var(--btn-radius);
     background-color: transparent;
     font-family: var(--heading-font);
     text-align: center;
+  }
+
+  button {
+    transition: var(--btn-transition);
+  }
+
+  button:hover {
+    background-color: var(--accent-color);
+    color: #fff;
+    cursor: pointer;
   }
 
   input::placeholder {

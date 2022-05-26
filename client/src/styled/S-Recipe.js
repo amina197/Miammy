@@ -1,69 +1,69 @@
 import styled from 'styled-components';
 
-export const SRecipeContainer = styled.div`
+export const SRecipeWrapper = styled.div`
   display: flex;
   width: 100%;
   justify-content: center;
-  align-items: center;
-  margin-bottom: 3rem;
-`;
+  margin: 25px 0;
 
-export const SImageContainer = styled.div`
-  min-height: 1000px;
-  width: 40%;
-  display: flex;
-  justify-content: end;
-
-  background-image: url(${({ img }) => img});
-  background-position: center;
-  background-size: cover;
-
-  top: 0;
-  position: sticky;
-  position: -webkit-sticky;
-
-  iframe {
-    height: 18%;
-    padding: 0.6rem 0 0.6rem 0.6rem;
-    background-color: #fff;
-    border: none;
-    margin-top: 3rem;
+  img {
+    height: 42vh;
   }
 `;
 
-export const SVideoIngredientContainer = styled.div`
+export const SRecipeInstructionsHeaderContainer = styled.div`
   display: flex;
-  // flex-direction: column;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
-  margin: 2rem 0;
-  width: 60%;
+  margin-bottom: 15px;
+
+  h2 {
+    font-family: var(--heading-font);
+    font-size: 1.3rem;
+  }
+
+  button {
+    margin-left: 10px;
+    border: var(--btn-border);
+    border-radius: var(--btn-radius);
+    padding: var(--btn-padding);
+    font-family: var(--heading-font);
+    background-color: transparent;
+    transition: var(--btn-transition);
+  }
+
+  button:hover {
+    color: #fff;
+    background-color: var(--accent-color);
+    cursor: pointer;
+  }
 `;
 
-export const SIngredientInfoContainer = styled.div`
+export const SRecipeContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  h1 {
-    font-size: 2.6rem;
-    text-align: center;
-    font-family: 'Pacifico', cursive;
-  }
-
-  span {
-    font-size: 1.5rem;
-    align-self: center;
-    justify-self: center;
-    text-align: center;
-  }
-
-  ul {
-    margin: 1rem 0
-  }
+  margin-left: 40px;
+  width: 45%;
 
   p {
-    margin: 0 15%;
+    font-family: var(--body-font);
+    font-size: .8rem;
+    margin-bottom: 10px;
   }
+`;
+
+export const SIngredientsList = styled.ul`
+  li {
+    font-family: var(--body-font);
+    font-size: .8rem;
+  }
+`;
+
+export const SInstructionsContainer = styled.div`
+  height: 35vh;
+  overflow: scroll;
+  white-space: no-wrap;
+  background-color: var(--very-discreet-color);
+  border-radius: 5px;
+  padding: 15px;
 `;
