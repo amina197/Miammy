@@ -35,7 +35,7 @@ Have fun 🤩
 
 
 ## 🔥 Coming next
-Firebase authentication --> ongoing
+Firebase authentication --> ongoing  
 Responsiveness  
 Performance testing  
 Unit testing
