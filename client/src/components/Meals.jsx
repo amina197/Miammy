@@ -67,9 +67,9 @@ export default function Meals() {
     <>
       <Header />
       <SCarousel>
-        <h1>Meals</h1>
+        <h1>Recipes</h1>
         <h2>{`-- ${filter} --`}</h2>
-        <input type="text" id="research" placeholder="Filter your meals by name" onChange={mealResearched} />
+        <input type="text" id="research" placeholder="Filter recipes by name" onChange={mealResearched} />
       </SCarousel>
       <SMealsWrapper>
         <SMealsContainer>

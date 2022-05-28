@@ -97,9 +97,9 @@ export default function Recipe() {
         : null }
       <Header />
       <SCarousel>
-        <h1>Let's cook</h1>
+        <h1>Let&#39;s cook</h1>
         <h2>{recipe.strMeal}</h2>
-        { youtube ? <button type="button" onClick={() => setShowYoutube(true)}>Watch tutorial</button> : null }
+        { youtube ? <button type="button" onClick={() => setShowYoutube(true)}>Watch the tutorial</button> : null }
       </SCarousel>
       <SRecipeWrapper>
         <img alt={recipe.strMeal} src={recipe.strMealThumb} />
