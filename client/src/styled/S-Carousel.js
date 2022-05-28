@@ -28,28 +28,32 @@ const SCarousel = styled.div`
   }
 
   input, button {
-    width: 15%;
     margin-bottom: 1rem;
     padding: 2px 4px;
-    border: 1.5px solid var(--main-color);
     border-radius: var(--btn-radius);
-    background-color: transparent;
     font-family: var(--heading-font);
     text-align: center;
+    background-color: var(--accent-color);
+    color: #fff;
+    border: var(--btn-border);
+  }
+
+  input {
+    width: 15%;
   }
 
   button {
+    min-width: 10%;
     transition: var(--btn-transition);
   }
 
   button:hover {
-    background-color: var(--accent-color);
-    color: #fff;
+    background-color: var(--main-color);
     cursor: pointer;
   }
 
   input::placeholder {
-    color: var(--main-color);
+    color: #fff;
   }
 `;
 
