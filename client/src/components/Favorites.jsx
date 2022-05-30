@@ -25,7 +25,7 @@ export default function Favorites() {
   };
 
   const deleteFave = (e) => {
-    axios.delete('/favorite/delete', { data: { id: e.target.attributes['data-key'].value } })
+    axios.delete('/favorites/delete', { data: { id: e.target.attributes['data-key'].value } })
       .then(() => fetchFavorites())
       .catch((err) => console.error(err));
   };

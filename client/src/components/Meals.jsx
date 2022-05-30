@@ -36,8 +36,9 @@ export default function Meals() {
   };
 
   const favoriteClicked = (e) => {
-    axios.post('/favorite/add', {
+    axios.post('/favorites/add', {
       params: {
+        user: localStorage.getItem('user'),
         id: e.target.attributes['data-key'].value,
         title: e.target.attributes['data-title'].value,
         thumbnail: e.target.attributes['data-thumb'].value,
@@ -58,6 +59,7 @@ export default function Meals() {
         <BackCard>
           <h1>{meal.strMeal}</h1>
           <button type="button" onClick={mealClicked} data-key={meal.idMeal}>Check recipe</button>
+          <button type="button" onClick={favoriteClicked} data-key={meal.idMeal} data-title={meal.strMeal} data-thumb={meal.strMealThumb}>Add to favorites</button>
         </BackCard>
       </FullCard>
     </SMealContainer>

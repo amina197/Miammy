@@ -50,13 +50,13 @@ app.get('/favorites', (req, res) => {
     .catch((err) => console.error('Error fetching favorites in DB', err));
 });
 
-app.post('/favorite/add', (req, res) => {
+app.post('/favorites/add', (req, res) => {
   addToFavorite(req.body.params)
     .then(() => res.status(201).send('recipe successfully saved in favorites'))
     .catch(({ err }) => console.error('Error insertion in DB', err));
 });
 
-app.delete('/favorite/delete', (req, res) => {
+app.delete('/favorites/delete', (req, res) => {
   removeFavorite(req.body.id)
     .then((data) => console.log(data))
     .catch((err) => console.error(err));
