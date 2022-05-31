@@ -15,8 +15,8 @@ export default function Favorites() {
   const navigate = useNavigate();
 
   const fetchFavorites = () => {
-    axios.get('/favorites')
-      .then(({ data }) => setFaves(data))
+    axios.get('/favorites', { params: { uid: localStorage.getItem('user') } })
+      .then(({ data }) => setFaves(data[0].favorites))
       .catch((err) => console.error(err));
   };
 
@@ -25,7 +25,7 @@ export default function Favorites() {
   };
 
   const deleteFave = (e) => {
-    axios.delete('/favorite/delete', { data: { id: e.target.attributes['data-key'].value } })
+    axios.delete('/favorites/delete', { data: { id: e.target.attributes['data-key'].value } })
       .then(() => fetchFavorites())
       .catch((err) => console.error(err));
   };

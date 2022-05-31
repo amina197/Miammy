@@ -45,12 +45,12 @@ app.get('/api/meals/recipe', (req, res) => {
 });
 
 app.get('/favorites', (req, res) => {
-  fetchAllFavorites()
+  fetchAllFavorites(req.query.uid)
     .then((data) => res.status(200).send(data))
     .catch((err) => console.error('Error fetching favorites in DB', err));
 });
 
-app.post('/favorite/add', (req, res) => {
+app.post('/favorites/add', (req, res) => {
   addToFavorite(req.body.params)
     .then(() => res.status(201).send('recipe successfully saved in favorites'))
     .catch(({ err }) => console.error('Error insertion in DB', err));

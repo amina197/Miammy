@@ -50,6 +50,7 @@ export default function SignIn() {
       .then(() => {
         resetInfo();
         navigate('/home');
+        setShowModal(false);
       })
       .catch((err) => {
         const { code } = err;
@@ -69,9 +70,11 @@ export default function SignIn() {
   const connectCredentials = () => {
     resetError('');
     userSignIn(email, password)
-      .then(() => {
+      .then((credentials) => {
+        localStorage.setItem('user', credentials.user.uid);
         resetInfo();
         navigate('/home');
+        setShowModal(false);
       })
       .catch((err) => {
         const { code } = err;
