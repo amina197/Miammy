@@ -13,12 +13,6 @@ const favoriteSchema = new Schema({
 });
 const Favorites = mongoose.model('Favorites', favoriteSchema);
 
-// const addToFavorite = (fave) => Favorites.findOneAndUpdate({ idMeal: fave.id }, {
-//   idMeal: fave.id,
-//   strMeal: fave.title,
-//   strMealThumb: fave.thumbnail,
-// }, { new: true, upsert: true });
-
 const addToFavorite = (fave) => Favorites.findOneAndUpdate({ uid: fave.user }, {
   $push: {
     favorites: {
@@ -29,7 +23,7 @@ const addToFavorite = (fave) => Favorites.findOneAndUpdate({ uid: fave.user }, {
   },
 }, { new: true, upsert: true });
 
-const fetchAllFavorites = () => Favorites.find();
+const fetchAllFavorites = (uid) => Favorites.find({ uid });
 
 const removeFavorite = (faveId) => Favorites.deleteOne({ idMeal: faveId });
 

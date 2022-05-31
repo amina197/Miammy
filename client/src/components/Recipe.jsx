@@ -72,7 +72,7 @@ export default function Recipe() {
     </li>
   ));
 
-  const instructions = splitInstructions.map((step) => <p>{step}</p>);
+  const instructions = splitInstructions.map((step) => <p key={Math.random() * 1000}>{step}</p>);
 
   return (
     <>

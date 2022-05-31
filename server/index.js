@@ -45,7 +45,7 @@ app.get('/api/meals/recipe', (req, res) => {
 });
 
 app.get('/favorites', (req, res) => {
-  fetchAllFavorites()
+  fetchAllFavorites(req.query.uid)
     .then((data) => res.status(200).send(data))
     .catch((err) => console.error('Error fetching favorites in DB', err));
 });
@@ -56,7 +56,7 @@ app.post('/favorites/add', (req, res) => {
     .catch(({ err }) => console.error('Error insertion in DB', err));
 });
 
-app.delete('/favorites/delete', (req, res) => {
+app.delete('/favorite/delete', (req, res) => {
   removeFavorite(req.body.id)
     .then((data) => console.log(data))
     .catch((err) => console.error(err));
