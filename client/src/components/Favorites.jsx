@@ -48,16 +48,6 @@ export default function Favorites() {
     </SMealWrapper>
   ));
 
-  const emptyFavorites = (
-    <SMealWrapper>
-      <FullCard>
-        <FrontCard>
-          <h1>No recipes have been added to your favorites yet.</h1>
-        </FrontCard>
-      </FullCard>
-    </SMealWrapper>
-  );
-
   const noFavorites = (
     <SMealWrapper>
       <FullCard>
