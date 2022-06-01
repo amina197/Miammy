@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { useRecoilState } from 'recoil';
 import {
   SFavoritesWrapper,
   SMealWrapper,
@@ -9,9 +10,13 @@ import {
   FrontCard,
   BackCard,
 } from '../styled/S-Favorite';
+import { showBadAlert, showGoodAlert, alertMessage } from '../atoms';
 
 export default function Favorites() {
   const [faves, setFaves] = useState([]);
+  const [showRedAlert, setShowRedAlert] = useRecoilState(showBadAlert);
+  const [showGreenAlert, setShowGreenAlert] = useRecoilState(showGoodAlert);
+  const [alert, setAlert] = useRecoilState(alertMessage);
   const navigate = useNavigate();
 
   const fetchFavorites = () => {
@@ -26,8 +31,15 @@ export default function Favorites() {
 
   const deleteFave = (e) => {
     axios.delete('/favorites/delete', { data: { id: e.target.attributes['data-key'].value, uid: localStorage.getItem('user') } })
-      .then(() => fetchFavorites())
-      .catch((err) => console.error(err));
+      .then(() => {
+        fetchFavorites();
+        setShowGreenAlert(true);
+        setAlert('Recipe successfully deleted from your favorites');
+      })
+      .catch(() => {
+        setShowRedAlert(true);
+        setAlert('An error has occured. Please try again later');
+      });
   };
 
   useEffect(() => {

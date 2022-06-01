@@ -9,10 +9,12 @@ import {
   HomeFavoritesWrapper,
   HomeFiltersWrapper,
 } from '../styled/S-Home';
+import Alert from './Alert';
 
 function Home() {
   return (
     <>
+      <Alert />
       <Header />
       <SCarousel>
         <h1>Be Inspired</h1>
