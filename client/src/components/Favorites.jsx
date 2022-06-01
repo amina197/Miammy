@@ -37,7 +37,7 @@ export default function Favorites() {
   const allFavorites = faves.map((fave) => (
     <SMealWrapper key={fave.idMeal}>
       <FullCard>
-        <FrontCard img={`${fave.strMealThumb}`}>
+        <FrontCard>
           <h1>{fave.strMeal}</h1>
         </FrontCard>
         <BackCard>
@@ -48,10 +48,23 @@ export default function Favorites() {
     </SMealWrapper>
   ));
 
+  const noFavorites = (
+    <SMealWrapper>
+      <FullCard>
+        <FrontCard style={{ backgroundColor: 'var(--discreet-color)', border: '0' }}>
+          <h1>No recipe yet.</h1>
+        </FrontCard>
+      </FullCard>
+    </SMealWrapper>
+  );
+
   return (
     <SFavoritesWrapper>
       <SFavoritesContainer>
-        {allFavorites}
+        { allFavorites }
+        { faves.length <= 2 ? noFavorites : null }
+        { faves.length <= 1 ? noFavorites : null }
+        { !faves.length ? noFavorites : null }
       </SFavoritesContainer>
     </SFavoritesWrapper>
   );
