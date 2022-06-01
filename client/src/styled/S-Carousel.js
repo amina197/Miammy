@@ -29,13 +29,14 @@ const SCarousel = styled.div`
 
   input, button {
     margin-bottom: 1rem;
-    padding: 2px 4px;
+    padding: 2px 8px;
     border-radius: var(--btn-radius);
     font-family: var(--heading-font);
     text-align: center;
     background-color: var(--accent-color);
     color: #fff;
     border: var(--btn-border);
+    transition: var(--btn-transition);
   }
 
   input {
@@ -44,16 +45,22 @@ const SCarousel = styled.div`
 
   button {
     min-width: 10%;
-    transition: var(--btn-transition);
   }
 
-  button:hover {
+  button:hover,
+  input:hover,
+  input:active,
+  input:focus {
     background-color: var(--main-color);
     cursor: pointer;
   }
 
   input::placeholder {
     color: #fff;
+  }
+
+  input:focus::placeholder {
+    color: transparent;
   }
 `;
 

@@ -37,7 +37,7 @@ export default function Favorites() {
   const allFavorites = faves.map((fave) => (
     <SMealWrapper key={fave.idMeal}>
       <FullCard>
-        <FrontCard img={`${fave.strMealThumb}`}>
+        <FrontCard>
           <h1>{fave.strMeal}</h1>
         </FrontCard>
         <BackCard>

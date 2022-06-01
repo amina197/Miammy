@@ -10,8 +10,9 @@ export const SMealsWrapper = styled.div`
 
 export const SMealsContainer = styled.div`
   display: flex;
-  max-width: 80%;
-  height: 250px;
+  justify-content: center;
+  max-width: 86%;
+  height: 350px;
   position: relative;
   overflow: scroll;
   white-space: no-wrap;
