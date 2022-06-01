@@ -31,11 +31,6 @@ const removeFavorite = (id, uid) => Favorites.updateOne({ uid }, {
   $pull: { favorites: { _id: ObjectId(id) } },
 });
 
-// db.presentations.update(
-//   {'content.assets._id': ObjectId('4fc63def5b20fb722900010e')},
-//   {$pull: {'content.$.assets': {'_id': ObjectId('4fc63def5b20fb722900010e')}}}
-// )
-
 module.exports.addToFavorite = addToFavorite;
 module.exports.fetchAllFavorites = fetchAllFavorites;
 module.exports.removeFavorite = removeFavorite;
