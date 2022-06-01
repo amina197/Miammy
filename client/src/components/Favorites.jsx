@@ -25,7 +25,7 @@ export default function Favorites() {
   };
 
   const deleteFave = (e) => {
-    axios.delete('/favorites/delete', { data: { id: e.target.attributes['data-key'].value } })
+    axios.delete('/favorites/delete', { data: { id: e.target.attributes['data-key'].value, uid: localStorage.getItem('user') } })
       .then(() => fetchFavorites())
       .catch((err) => console.error(err));
   };
@@ -35,14 +35,14 @@ export default function Favorites() {
   }, []);
 
   const allFavorites = faves.map((fave) => (
-    <SMealWrapper key={fave.idMeal}>
+    <SMealWrapper key={fave._id}>
       <FullCard>
         <FrontCard>
           <h1>{fave.strMeal}</h1>
         </FrontCard>
         <BackCard>
           <button data-key={fave.idMeal} type="button" onClick={checkRecipe}>Check Recipe</button>
-          <button data-key={fave.idMeal} type="button" onClick={deleteFave}>Remove</button>
+          <button data-key={fave._id} type="button" onClick={deleteFave}>Remove</button>
         </BackCard>
       </FullCard>
     </SMealWrapper>

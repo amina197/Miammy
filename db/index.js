@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 
+const { ObjectId } = mongoose.Types;
+
 mongoose.connect('mongodb://localhost:27017/miammy');
 
 const { Schema } = mongoose;
@@ -25,7 +27,14 @@ const addToFavorite = (fave) => Favorites.findOneAndUpdate({ uid: fave.user }, {
 
 const fetchAllFavorites = (uid) => Favorites.find({ uid });
 
-const removeFavorite = (faveId) => Favorites.deleteOne({ idMeal: faveId });
+const removeFavorite = (id, uid) => Favorites.updateOne({ uid }, {
+  $pull: { favorites: { _id: ObjectId(id) } },
+});
+
+// db.presentations.update(
+//   {'content.assets._id': ObjectId('4fc63def5b20fb722900010e')},
+//   {$pull: {'content.$.assets': {'_id': ObjectId('4fc63def5b20fb722900010e')}}}
+// )
 
 module.exports.addToFavorite = addToFavorite;
 module.exports.fetchAllFavorites = fetchAllFavorites;
