@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useRecoilState } from 'recoil';
 import {
   SMealsWrapper,
   SMealsContainer,
@@ -10,7 +11,9 @@ import {
   BackCard,
 } from '../styled/S-Meals';
 import Header from './Header';
+import Alert from './Alert';
 import SCarousel from '../styled/S-Carousel';
+import { showBadAlert, showGoodAlert, alertMessage } from '../atoms';
 
 export default function Meals() {
   const location = useLocation();
@@ -18,6 +21,9 @@ export default function Meals() {
   const [research, setResearch] = useState('');
   const [filteredMeals, setFilteredMeals] = useState([]);
   const [filter, setFilter] = useState('');
+  const [showRedAlert, setShowRedAlert] = useRecoilState(showBadAlert);
+  const [showGreenAlert, setShowGreenAlert] = useRecoilState(showGoodAlert);
+  const [alert, setAlert] = useRecoilState(alertMessage);
 
   useEffect(() => {
     if (research && location.state) {
@@ -44,8 +50,14 @@ export default function Meals() {
         thumbnail: e.target.attributes['data-thumb'].value,
       },
     })
-      .then(({ data }) => console.log(data))
-      .catch((err) => console.error(err));
+      .then(({ data }) => {
+        setShowGreenAlert(true);
+        setAlert(data);
+      })
+      .catch(() => {
+        setShowRedAlert(true);
+        setAlert('An error has occured. Please try again later');
+      });
   };
 
   const mealResearched = (e) => {
@@ -67,6 +79,7 @@ export default function Meals() {
 
   return (
     <>
+      <Alert />
       <Header />
       <SCarousel>
         <h1>Recipes</h1>
