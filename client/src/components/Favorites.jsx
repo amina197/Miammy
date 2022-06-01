@@ -48,10 +48,33 @@ export default function Favorites() {
     </SMealWrapper>
   ));
 
+  const emptyFavorites = (
+    <SMealWrapper>
+      <FullCard>
+        <FrontCard>
+          <h1>No recipes have been added to your favorites yet.</h1>
+        </FrontCard>
+      </FullCard>
+    </SMealWrapper>
+  );
+
+  const noFavorites = (
+    <SMealWrapper>
+      <FullCard>
+        <FrontCard style={{ backgroundColor: 'var(--discreet-color)', border: '0' }}>
+          <h1>No recipe yet.</h1>
+        </FrontCard>
+      </FullCard>
+    </SMealWrapper>
+  );
+
   return (
     <SFavoritesWrapper>
       <SFavoritesContainer>
-        {allFavorites}
+        { allFavorites }
+        { faves.length <= 2 ? noFavorites : null }
+        { faves.length <= 1 ? noFavorites : null }
+        { !faves.length ? noFavorites : null }
       </SFavoritesContainer>
     </SFavoritesWrapper>
   );

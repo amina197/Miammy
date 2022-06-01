@@ -70,6 +70,7 @@ export const FrontCard = styled.div`
 
   h1 {
     color: #fff;
+    font-size: 1.1rem;
   }
 `;
 

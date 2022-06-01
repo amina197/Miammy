@@ -53,7 +53,6 @@ export const FullCard = styled.div`
     text-transform: uppercase;
     text-align: center;
     font-family: var(--heading-font);
-    font-weight: 400;
   }
 `;
 

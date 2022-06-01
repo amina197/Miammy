@@ -5,7 +5,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     color: #333333;
     font-weight: 400;
   }
