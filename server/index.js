@@ -56,8 +56,9 @@ app.post('/favorites/add', (req, res) => {
     .catch(({ err }) => console.error('Error insertion in DB', err));
 });
 
-app.delete('/favorite/delete', (req, res) => {
-  removeFavorite(req.body.id)
+app.delete('/favorites/delete', (req, res) => {
+  const { id, uid } = req.body;
+  removeFavorite(id, uid)
     .then((data) => console.log(data))
     .catch((err) => console.error(err));
   res.status(204).send('Successfully deleted');
