@@ -2,17 +2,13 @@ import { AuthErrorCodes } from 'firebase/auth';
 import React, { useState, useEffect } from 'react';
 import { useRecoilState } from 'recoil';
 import { useNavigate } from 'react-router-dom';
+import { createNewUser, userSignIn } from '../authentication';
 import {
-  createNewUser,
-  userSignIn,
-} from '../authentication';
-import {
-  SignInWrapper,
-  SignInContainer,
   SignInForm,
   AccountContainer,
   CTA,
 } from '../styled/S-SignIn';
+import { ModalWrapper, ModalContainer } from '../styled/S-Modal';
 import { showSignIn } from '../atoms';
 
 export default function SignIn() {
@@ -94,8 +90,8 @@ export default function SignIn() {
   return (
     <>
       { showModal ? (
-        <SignInWrapper onClick={() => { setShowModal(false); }}>
-          <SignInContainer onClick={(e) => e.stopPropagation()}>
+        <ModalWrapper onClick={() => { setShowModal(false); }}>
+          <ModalContainer onClick={(e) => e.stopPropagation()}>
             <h6>{ modalView === 'signin' ? 'Sign in' : 'Sign up'}</h6>
             <SignInForm>
               <label htmlFor="email">Email</label>
@@ -123,8 +119,8 @@ export default function SignIn() {
                   </>
                 )}
             </SignInForm>
-          </SignInContainer>
-        </SignInWrapper>
+          </ModalContainer>
+        </ModalWrapper>
       )
         : null }
       { null }
