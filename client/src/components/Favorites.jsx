@@ -10,10 +10,16 @@ import {
   FrontCard,
   BackCard,
 } from '../styled/S-Favorite';
-import { showBadAlert, showGoodAlert, alertMessage } from '../atoms';
+import {
+  showBadAlert,
+  showGoodAlert,
+  alertMessage,
+  favoriteIDs,
+} from '../atoms';
 
 export default function Favorites() {
   const [faves, setFaves] = useState([]);
+  const [faveIDs, setFaveIDs] = useRecoilState(favoriteIDs);
   const [showRedAlert, setShowRedAlert] = useRecoilState(showBadAlert);
   const [showGreenAlert, setShowGreenAlert] = useRecoilState(showGoodAlert);
   const [alert, setAlert] = useRecoilState(alertMessage);
@@ -45,6 +51,10 @@ export default function Favorites() {
   useEffect(() => {
     fetchFavorites();
   }, []);
+
+  useEffect(() => {
+    setFaveIDs(faves.map((fave) => fave.idMeal));
+  }, [faves]);
 
   const allFavorites = faves.map((fave) => (
     <SMealWrapper key={fave._id}>

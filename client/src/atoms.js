@@ -24,3 +24,8 @@ export const isLoggedIn = atom({
   key: 'isLoggedIn',
   default: false,
 });
+
+export const favoriteIDs = atom({
+  key: 'favoritesIDs',
+  default: [],
+});

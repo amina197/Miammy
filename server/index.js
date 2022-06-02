@@ -4,7 +4,7 @@ const express = require('express');
 
 const app = express();
 const axios = require('axios');
-const { addToFavorite, fetchAllFavorites, removeFavorite } = require('../db/index');
+const { addToFavorite, fetchAllFavorites, fetchFavoritesNames, removeFavorite } = require('../db/index');
 
 app.use(express.json());
 app.use(express.static(path.resolve(__dirname, '../client/dist')));
