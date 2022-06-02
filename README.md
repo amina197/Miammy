@@ -34,10 +34,3 @@ Run the server
 Open the application on the browser at **[localhost:3000](http://localhost:3000/)**
 
 Have fun 🤩
-
-
-## 🔥 Coming next
-Firebase authentication --> ongoing
-Responsiveness
-Performance testing
-Unit testing
