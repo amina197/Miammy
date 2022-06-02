@@ -27,7 +27,11 @@ export default function Favorites() {
 
   const fetchFavorites = () => {
     axios.get('/favorites', { params: { uid: localStorage.getItem('user') } })
-      .then(({ data }) => setFaves(data[0].favorites))
+      .then(({ data }) => {
+        if (data && data[0]) {
+          setFaves(data[0].favorites);
+        }
+      })
       .catch((err) => console.error(err));
   };
 

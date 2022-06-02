@@ -43,7 +43,9 @@ export default function SignIn() {
   const saveCredentials = () => {
     resetError();
     createNewUser(email, password)
-      .then(() => {
+      .then((credentials) => {
+        console.log(credentials);
+        localStorage.setItem('user', credentials.user.uid);
         resetInfo();
         navigate('/home');
         setShowModal(false);
