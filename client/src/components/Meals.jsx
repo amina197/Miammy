@@ -13,7 +13,12 @@ import {
 import Header from './Header';
 import Alert from './Alert';
 import SCarousel from '../styled/S-Carousel';
-import { showBadAlert, showGoodAlert, alertMessage } from '../atoms';
+import {
+  showBadAlert,
+  showGoodAlert,
+  alertMessage,
+  favoriteIDs,
+} from '../atoms';
 
 export default function Meals() {
   const location = useLocation();
@@ -21,6 +26,7 @@ export default function Meals() {
   const [research, setResearch] = useState('');
   const [filteredMeals, setFilteredMeals] = useState([]);
   const [filter, setFilter] = useState('');
+  const [faveIDs, setFaveIDs] = useRecoilState(favoriteIDs);
   const [showRedAlert, setShowRedAlert] = useRecoilState(showBadAlert);
   const [showGreenAlert, setShowGreenAlert] = useRecoilState(showGoodAlert);
   const [alert, setAlert] = useRecoilState(alertMessage);
@@ -71,7 +77,10 @@ export default function Meals() {
         <BackCard>
           <h1>{meal.strMeal}</h1>
           <button type="button" onClick={mealClicked} data-key={meal.idMeal}>Check recipe</button>
-          <button type="button" onClick={favoriteClicked} data-key={meal.idMeal} data-title={meal.strMeal} data-thumb={meal.strMealThumb}>Add to favorites</button>
+          {
+            faveIDs.indexOf(meal.idMeal) === -1
+              ? <button type="button" onClick={favoriteClicked} data-key={meal.idMeal} data-title={meal.strMeal} data-thumb={meal.strMealThumb}>Add to favorites</button> : null
+          }
         </BackCard>
       </FullCard>
     </SMealContainer>
