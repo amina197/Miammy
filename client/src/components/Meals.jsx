@@ -67,7 +67,7 @@ export default function Meals() {
   const allMeals = filteredMeals.map((meal) => (
     <SMealContainer key={meal.idMeal} data-key={meal.idMeal}>
       <FullCard>
-        <FrontCard img={`${meal.strMealThumb}/preview`} />
+        <FrontCard img={`${meal.strMealThumb}`} />
         <BackCard>
           <h1>{meal.strMeal}</h1>
           <button type="button" onClick={mealClicked} data-key={meal.idMeal}>Check recipe</button>
