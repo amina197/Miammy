@@ -31,6 +31,7 @@ export default function Header() {
   const handleLogClick = () => {
     if (isLogged) {
       logout();
+      navigate('/');
     } else {
       setShowModal(true);
     }
