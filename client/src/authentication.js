@@ -27,5 +27,3 @@ export const createNewUser = (email, pwd) => createUserWithEmailAndPassword(auth
 export const userSignIn = (email, pwd) => signInWithEmailAndPassword(auth, email, pwd);
 
 export const logout = () => signOut(auth);
-
-// const analytics = getAnalytics(firebaseApp);

@@ -6,13 +6,15 @@ export const SignInForm = styled.form`
   justify-content: center;
   align-items: center;
   margin-bottom: 1rem;
+  width: 50%;
 
   input {
-    padding: 5px 50% 5px 10%;
+    padding: 5px 20px;
     margin-bottom: 1rem;
     border-radius: 20px;
     background-color: var(--discreet-color);
     border-color: transparent;
+    width: 100%;
 
     font-size: .7rem;
   }
@@ -21,7 +23,7 @@ export const SignInForm = styled.form`
     font-size: 1rem;
     font-family: var(--subheading-font);
     display: block;
-    width: 110%;
+    width: 100%;
     line-height: 1.2;
   }
 
