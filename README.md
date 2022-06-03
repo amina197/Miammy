@@ -34,8 +34,10 @@ Open the application on the browser at **[localhost:3000](http://localhost:3000/
 
 Have fun 🤩
 
-## Performance
-![Lighthouse performance](./client/dist/images/perf.png)
+## Performance  
+Website performance on Google Lighthouse  
+   
+<img src="./client/dist/images/perf.png" alt="performance results" width="500"/>
 
 ## 🔥 Coming next
 Firebase authentication --> ongoing
