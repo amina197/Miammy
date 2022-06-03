@@ -1,5 +1,13 @@
 # Miammy
-![GitHub top language](https://img.shields.io/github/languages/top/amina197/Miammy)
+
+## Table of Contents
+- [Overview](#overview)  
+- [Main technologies](#main-technologies)  
+- [Usage](#usage)  
+- [Performance](#performance)  
+
+## Overview
+![GitHub top language](https://img.shields.io/github/languages/top/amina197/Miammy)  
 Miammy is a food recipe app, targeting anyone who wants to cook and discover new meal recipes.
 
 <img alt="Miammy presentation" src="./client/dist/images/preview.gif"/>
