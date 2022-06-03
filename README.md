@@ -3,7 +3,7 @@
 Miammy is a food recipe app, targeting anyone who wants to cook and discover new meal recipes.
 
 <img alt="Miammy presentation" src="./client/dist/images/Prez.gif"/>
-<!-- ![video feature](./client/dist/images/Prez.gif) -->
+![preview](./client/dist/images/Prez.gif)
 
 ## Main Technologies
 ![React](https://img.shields.io/badge/-React-61DAFB?logo=react&logoColor=white&style=for-the-badge)
@@ -26,7 +26,7 @@ Install the dependencies
 **```npm install```**
 
 Run webpack
-**```npm run react:dev```**
+**```npm run build:dev```**
 
 Run the server
 **```npm run server:dev```**
@@ -35,6 +35,8 @@ Open the application on the browser at **[localhost:3000](http://localhost:3000/
 
 Have fun 🤩
 
+## Performance
+![Lighthouse performance](./client/dist/images/perf.png)
 
 ## 🔥 Coming next
 Firebase authentication --> ongoing
