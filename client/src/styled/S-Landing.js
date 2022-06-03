@@ -13,7 +13,7 @@ export const SLandingWrapper = styled.div`
     font-family: var(--heading-font);
     font-weight: 400;
     font-size: 11rem;
-    line-height: 8rem;
+    line-height: 9rem;
   }
 
   h2 {

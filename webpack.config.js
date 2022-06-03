@@ -1,5 +1,6 @@
 const path = require('path');
 const ESLintPlugin = require('eslint-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -25,17 +26,16 @@ module.exports = {
       },
     ],
   },
-  devtool: 'eval-cheap-module-source-map',
-  devServer: {
-    static: {
-      directory: path.join(__dirname, 'client', 'dist'),
-    },
-    compress: true,
-    port: 3000,
-  },
+  // devtool: 'eval-cheap-module-source-map',
   resolve: {
     enforceExtension: false,
     extensions: ['.js', '.jsx'],
   },
-  plugins: [new ESLintPlugin()],
+  plugins: [
+    new ESLintPlugin(),
+  ],
+  optimization: {
+    minimize: true,
+    minimizer: [new TerserPlugin({ parallel: true })],
+  },
 };

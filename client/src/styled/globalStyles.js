@@ -17,7 +17,7 @@ const GlobalStyle = createGlobalStyle`
     --very-discreet-color: rgba(51, 51, 51, .06);
     --negative-color:  #EC591C;
     --heading-font: coldsmith-pro,sans-serif;
-    --subheading-font: "Trattatello", serif;
+    --subheading-font: 'Yanone Kaffeesatz', sans-serif;
     --body-font: 'Hind Siliguri', sans-serif;
     --btn-radius: 20px;
     --btn-padding: 3px 17px;
