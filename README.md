@@ -1,5 +1,5 @@
 # Miammy
-![GitHub top language](https://img.shields.io/github/languages/top/amina197/Miammy)  
+![GitHub top language](https://img.shields.io/github/languages/top/amina197/Miammy)
 Miammy is a food recipe app, targeting anyone who wants to cook and discover new meal recipes.
 
 <img alt="Miammy presentation" src="./client/dist/images/Prez.gif"/>
@@ -34,7 +34,6 @@ Run the server
 Open the application on the browser at **[localhost:3000](http://localhost:3000/)**
 
 Have fun 🤩
-<<<<<<< HEAD
 
 ## Performance
 ![Lighthouse performance](./client/dist/images/perf.png)
@@ -44,5 +43,3 @@ Firebase authentication --> ongoing
 Responsiveness
 Performance testing
 Unit testing
-=======
->>>>>>> main
