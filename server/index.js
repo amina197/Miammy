@@ -1,11 +1,13 @@
 require('dotenv').config();
 const path = require('path');
 const express = require('express');
+const compression = require('compression');
 
 const app = express();
 const axios = require('axios');
 const { addToFavorite, fetchAllFavorites, fetchFavoritesNames, removeFavorite } = require('../db/index');
 
+app.use(compression());
 app.use(express.json());
 app.use(express.static(path.resolve(__dirname, '../client/dist')));
 

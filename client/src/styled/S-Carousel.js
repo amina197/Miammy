@@ -18,16 +18,17 @@ const SCarousel = styled.div`
     margin-top: 7%;
     font-family: var(--heading-font);
     font-size: 5rem;
-    line-height: 2rem;
+    line-height: 4.2rem;
   }
 
   h2 {
     font-family: var(--subheading-font);
-    font-size: 2.5rem;
+    font-size: 2rem;
     text-align: center;
   }
 
   input, button {
+    margin-top: .5rem;
     margin-bottom: 1rem;
     padding: 2px 8px;
     border-radius: var(--btn-radius);
