@@ -38,9 +38,3 @@ Have fun 🤩
 Website performance on Google Lighthouse  
    
 <img src="./client/dist/images/perf.png" alt="performance results" width="500"/>
-
-## 🔥 Coming next
-Firebase authentication --> ongoing
-Responsiveness
-Performance testing
-Unit testing
